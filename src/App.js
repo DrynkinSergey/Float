@@ -3,12 +3,39 @@ import FirstScreen from "./components/FirstScreen";
 import WeDo from "./components/WeDo";
 import OurTeam from "./components/OurTeam";
 import ContactUs from "./components/ContactUs";
-import torus from './img/clients/torus.png'
-
+import {motion} from 'framer-motion'
 import icon from './img/footer.png'
+import {useEffect, useState} from "react";
 function App() {
+    const [mousePos, setMousePos] = useState({
+        x:0,
+        y:0
+    })
+    useEffect(()=>{
+        const mouseMove = e => {
+            setMousePos({
+                x: e.clientX,
+                y: e.clientY
+            })
+        }
+      window.addEventListener('mousemove', mouseMove);
+        return () => {
+            window.removeEventListener('mousemove', mouseMove)
+        }
+   },[])
+    const variants = {
+        default: {
+            x: mousePos.x,
+            y: mousePos.y
+        }
+    }
     return (
         <div className="App">
+            <motion.div
+                className='cursor'
+                variants={variants}
+                animate='default'
+            />
             <FirstScreen/>
             <Clients/>
             <WeDo/>

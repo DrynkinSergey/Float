@@ -1,6 +1,9 @@
 import React from 'react';
 import Header from "./Header";
 import gear from '../img/weDo/gear.png'
+import light from '../img/firstScreen/light.png'
+import light2 from '../img/firstScreen/light2.png'
+import heart from '../img/firstScreen/heart.png'
 import gear2 from '../img/weDo/gear_red.png'
 import graph from '../img/weDo/graph.png'
 import hp from '../img/weDo/hp.png'
@@ -34,6 +37,9 @@ const WeDo = () => {
                         <li><img src={movie} alt=""/></li>
                     </ul>
                     <div className='weDo_img_right'>
+                        <img className='light' src={light} alt=""/>
+                        <img className='light2' src={light2} alt=""/>
+                        <img className='heart' src={heart} alt=""/>
                         <img src={gearbig} alt=""/>
                         <div>
                             <span>Channel Operation and Management
