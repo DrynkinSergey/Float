@@ -6,27 +6,30 @@ import ContactUs from "./components/ContactUs";
 import {motion} from 'framer-motion'
 import icon from './img/footer.png'
 import {useEffect, useState} from "react";
+
 function App() {
     const [mousePos, setMousePos] = useState({
-        x:0,
-        y:0
+        x: 0,
+        y: 0
     })
-    useEffect(()=>{
+    useEffect(() => {
+
         const mouseMove = e => {
             setMousePos({
                 x: e.clientX,
                 y: e.clientY
             })
         }
-      window.addEventListener('mousemove', mouseMove);
+        window.addEventListener('mousemove', mouseMove);
         return () => {
             window.removeEventListener('mousemove', mouseMove)
         }
-   },[])
+    }, [])
     const variants = {
         default: {
             x: mousePos.x,
-            y: mousePos.y
+            y: mousePos.y,
+
         }
     }
     return (
@@ -45,7 +48,8 @@ function App() {
 
                 <div className="container flex">
                     <span>Floaat © 2019</span>
-                    <span style={{display:'flex'}}><img src={icon} style={{marginRight:'10px', width:'25px'}} alt=""/>Made by Nextpage</span>
+                    <span style={{display: 'flex'}}><img src={icon} style={{marginRight: '10px', width: '25px'}}
+                                                         alt=""/>Made by Nextpage</span>
                 </div>
             </footer>
         </div>
